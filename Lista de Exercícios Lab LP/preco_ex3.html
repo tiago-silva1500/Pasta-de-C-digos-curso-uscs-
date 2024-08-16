@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendo o preço de um produto</title>
+
+    <script>
+        //Função para calcular o preço do produto com desconto
+        function ContaPrecoDesconto(precoNormal) {
+            const desconto = 0.10 
+            const PrecoDesconto = precoNormal - (precoNormal * desconto);
+            return PrecoDesconto;
+        }
+
+        //Lendo o "preço normal" do produto]
+        const precoNormal = parseFloat(prompt("Digite o preço normal do produto:"));
+
+        //Calcular o preço já com o desconto
+        const PrecoDesconto = ContaPrecoDesconto(precoNormal);
+        alert(`O preço com desconto é: R$ ${PrecoDesconto.toFixed(2)}`);
+    </script>
+</head>
+
+</html>

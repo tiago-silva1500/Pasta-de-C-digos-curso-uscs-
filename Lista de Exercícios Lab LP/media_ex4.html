@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média Aritmética</title>
+    <script>
+
+        //Calcular a média aritmética
+        function calculoMedia(nota1, nota2, nota3) {
+            const media = (nota1 + nota2 + nota3) / 3;
+            return media;
+        }
+
+        //O programa lê as notas do aluno:
+        const nota1 = parseFloat(prompt("Digite a primeira nota do aluno: "));
+        const nota2 = parseFloat(prompt("Digite a segunda nota do aluno: "));
+        const nota3 = parseFloat(prompt("Digite a terceira nota do aluno: "));
+
+        //exibir média aritmética final
+        const media = calculoMedia(nota1, nota2, nota3);
+        alert(`A média aritmética do aluno é: ${media.toFixed(2)}`);
+    </script>
+
+</head>
+</html>
