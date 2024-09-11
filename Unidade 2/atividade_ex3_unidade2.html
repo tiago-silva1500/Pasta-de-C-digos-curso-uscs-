@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerício 3 - Função que retorna outra função</title> 
+    <script>
+            function receber(cliente) {
+        return function(nome) {
+            return `${cliente} ${nome}`;
+        };
+    }
+    const frase = receber("Olá, seja bem-vindo!");
+    alert(frase("Manoel"));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

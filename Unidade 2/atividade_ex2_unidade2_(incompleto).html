@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function limitCalls(fn, maxCalls) {
+        let callCount = 0;
+
+    return function(...args) {
+    if (callCount < maxCalls) {
+      callCount++;
+      return fn(...args);
+    } else {
+      console.log('Limite de chamadas atingido.');
+    }
+  };
+}
+
+const myFunction = (x) => x * 2;
+
+const limitedFunction = limitCalls(myFunction, 3);
+
+console.log(limitedFunction(1)); // 2
+console.log(limitedFunction(2)); // 4
+console.log(limitedFunction(3)); // 6
+console.log(limitedFunction(4)); //
+    </script>
+</head>
+</html>

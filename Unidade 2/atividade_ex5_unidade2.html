@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+    <script>
+        function Soma(num1, num2, callback) {
+            const resultado = num1 + num2;
+            callback(resultado);
+        }
+
+        function ExibirNaTela(resultado) {
+        alert(`Resultado da soma: ${resultado}`);
+        }
+        document.addEventListener('DOMContentLoaded', () => { //Evita problemas de sincronização
+        Soma(4, 2, ExibirNaTela); //Chama a função
+        });
+    </script>
+</head>
+</html>
