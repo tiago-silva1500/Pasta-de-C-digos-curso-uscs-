@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluindo contatos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Contatos</h1>
+
+    <table id="contactsTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Linhas de contatos serão inseridas aqui -->
+        </tbody>
+    </table>
+
+    <h2>Adicionar/Alterar Contato</h2>
+    <form id="contactForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" required><br><br>
+        <label for="email">E-mail:</label><br><br>
+        <input type="email" id="email" required><br><br>
+        <label for="phone">Telefone:</label>
+        <input type="text" id="phone" required><br><br>
+        <input type="hidden" id="contactIndex">
+        <button type="submit">Salvar</button>
+    </form>
+
+    <script>
+        //Array de contatos
+        let contacts = [
+            { name: "João", email: "joao@email.com", phone: "123-456-789"},
+            { name: "Maria", email: "maria@email.com", phone: "987-654-321"}
+        ];
+
+        //Atualizar a tabela
+        function UpdateTable() {
+            const tableBody = document.querySelector("#contatcsTable tbody");
+            tableBody.innerHTML = ""; //Limpa o corpo da tabela
+
+            contact.forEach((contact, index) => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                <td>${contact.name}<td>
+                <td>${contact.email}<td>
+                <td>${contact.phone}<td>
+                <td>
+                    <button onclick="editContact(${index})">Editar</button>
+                    <button onclick="deleteContact(${index})">Excluir</button>
+                </td>
+                `;
+
+                tableBody.appenChild(row);
+            });
+        }
+
+        //Adicionar ou alterar contato
+        function saveContact(event) {
+            event.preventDefault();
+
+            const name = document.querySelector("#name").value;
+            const email = document.querySelector("#email").value;
+            const phone = document.querySelector("#phone").value;
+            const index = document.querySelector("#contactIndex").value;
+
+            if (index === "") {
+                //Adicionar novo contato
+                contacts.push({ name, email, phone});
+            } else {
+                //Alterar contato existente
+                contacts[index] = { name, email, phone};
+            }
+
+            document.querySelect("#contactForm").reset();
+            document.querySelector("#contactIndex").value = "";
+            UpdateTable();
+        }
+
+        //Função para editar contato
+        function editContact(index) {
+            const contact = contacts[index];
+
+            document.querySelector("#name").value = contact.name;
+            document.querySelector("#email").value = contact.email;
+            document.querySelector("#phone").value = contact.phone;
+            document.querySelector("#contactIndex").value = index;
+        }
+
+        //Excluir contatos
+        function deleteContact(index) {
+            contacts.splice(index)
+                updateTbale();
+        }
+
+        //Salvar o contato
+        document.querySelector("#contactForm").addEventListener("submit", saveContact);
+
+        //Inicialização da tabela de contatos
+        updateTbale();
+    </script>
+</body>
+</html>

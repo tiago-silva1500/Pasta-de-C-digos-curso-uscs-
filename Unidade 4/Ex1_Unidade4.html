@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        #titulo {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Título</h1>
+    <button id="botao">Alterar cor</button>
+    
+    <script>
+        //Seleciona o elemento do título
+        const tituloElemento = document.getElementById("titulo");
+        const botaoElemento = document.getElementById("botao");
+        //Alterando conteúdo
+        function alterarCor() {
+            if (titulo.style.color === 'blue') {
+                titulo.style.color = 'red';
+            } else {
+                titulo.style.color = 'blue';
+            }
+        }
+        //Adicionando o evento para o clique
+        botao.addEventListener('click', alterarCor);
+    </script>
+</body>
+</html>
